@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center; /* Center the navbar */
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: rgb(0, 0, 0);
+    font-size: 1.0rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar a:hover {
+    color: #00aaff;
+}
+
+.Logo-header {
+    width: 160px;    /* Adjust width as needed */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Optional: removes inline spacing */
+    position: absolute;
+    left: 150px;
+    top: 15px;
+}
+
+.content {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 0rem 0; /* Vertical padding for spacing/
+    font-size: 0.9rem;
+    margin-top: 20px; /* Increased margin to lower the green section */
+    position: relative;
+    z-index: 1; /* Ensure content is above other elements */
+    
+}
+
+h1 {
+    text-align: center;
+    margin-top: 120px; /* Adjusted for fixed header */
+    font-size: 1rem;
+    color: #333;    
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1; /* Ensure h1 is above other content */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
