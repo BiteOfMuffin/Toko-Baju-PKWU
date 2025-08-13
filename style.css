@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Spartan", sans-serif;
+  text-decoration: none;
 }
 
 html {
@@ -179,6 +180,57 @@ body {
   font-size: 15px;
 }
 
+/* Feature */
+
+.feature-p1 {
+  text-align: center;
+  padding: 40px 40px;
+  flex-direction: row;
+  display: flex;
+  gap: 70px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.fe-box {
+  background-color: #F9F6EE;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 140px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fe-box h6 {
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+
+.h61 { background-color: #FFDDC1; color: #E63946; }
+.h62 { background-color: #C1FFD7; color: #1D3557; }
+.h63 { background-color: #FFFAC1; color: #2A9D8F; }
+.h64 { background-color: #E5C1FF; color: #9D4EDD; }
+.h65 { background-color: #C1E1FF; color: #457B9D; }
+.h66 { background-color: #FFD6C1; color: #6D6875; }
+
+.fe-box:hover {
+  transform: scale(1.10);
+  
+}
+
+.fe-box img {
+  width: auto;
+  height: 60px;
+}
+
+
 /* Product */
 
 #product1 {
@@ -255,4 +307,54 @@ body {
   position: absolute;
   bottom: 20px;
   right: 10px;
+}
+
+/* banner */
+#banner {
+  background-image: url("./img/banner/b2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px; /* tinggi banner */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-content {
+  color: white;
+}
+
+.banner-content .small-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.banner-content h4 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.banner-content h4 span {
+  color: #e63946; 
+  font-weight: bold;
+}
+
+.banner-content button {
+  margin-top: 15px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background, transform 0.3s ease;
+}
+
+.banner-content button:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
 }
