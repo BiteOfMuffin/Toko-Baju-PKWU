@@ -314,7 +314,13 @@ body {
 #banner {
   display: flex;
   justify-content: center;
+  align-items: center; /* Center vertically */
   text-align: center;
+  background-image: url("./img/banner/b2.jpg");
+  background-size: cover; /* Ensure the image covers the entire banner */
+  background-position: center; /* Center the image */
+  padding: 70px;
+  position: relative; /* Add relative positioning for absolute elements */
 }
 
 .banner-content {
@@ -327,27 +333,262 @@ body {
   opacity: 0.9;
 }
 
-.banner-content h4 {
-  font-size: 28px;
-  font-weight: 600;
-}
-
 #banner h4 {
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
+  margin: 0; /* Remove default margin */
+  text-align: center;
+  margin-bottom: 20px; /* Add space below the heading */
+  position: absolute;
+  top: 40px; /* Position at the top of the banner */
 }
 
 #banner h2 {
   color: #fff;
-  font-size: 30px;
-  padding: 10px 0;
+  font-size: 25px;
+  margin: 0; /* Remove default margin */
+  text-align: center;
 }
 
 #banner h2 span {
   color: #ef3636;
 }
 
-#banner button:hover {
+#banner button {
   background-color: #088178;
-  color: #fff; 
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: absolute;
+  bottom: 20px;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for perfect centering */
 }
+
+#banner .normal:hover {
+  background-color: #088178;
+  color: #fff;
+}
+/* ```````````` */
+
+.deals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  padding: 70px;
+  position: relative;
+}
+
+#crazy-deals {
+  background-image: url("./img/banner/b17.jpg");
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 35%;
+  height: 400px;
+  padding: 20px 10px;
+  margin-left: 5rem;
+  margin-bottom: 50px;
+}
+
+#crazy-deals h5,h3 {
+  color: #fff;
+  font-size: 20px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 15px; /* Add space below the heading */
+}
+
+#deals-crazy {
+  position: relative;
+  top: 6rem;
+  margin-left: 30px;
+  
+}
+
+#deals-crazy p {
+  color: #fff;
+  font-size: 12px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+#deals-crazy h3 {
+  color: #fff;
+  font-size: 30px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 10px; /* Add space below the heading */
+}
+
+#deals-crazy h5 {
+  color: #fff;
+  font-size: 20px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  font-weight: lighter;
+}
+
+/* ```````````` */
+  
+.Upcoming-season {
+  background-image: url("./img/banner/b10.jpg");
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 400px;
+  padding: 20px 10px;
+  margin-left: 5rem;
+  margin-bottom: 50px;
+  position: relative;
+  left: 45rem;
+  bottom: 11.2rem;
+}
+
+.Upcoming-season h5 {
+  color: #fff;
+  font-weight: lighter;
+  font-size: 10px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 15px; /* Add space below the heading */
+}
+
+.season {
+  position: relative;
+  top: 6rem;
+  left: 2rem;
+}
+
+.season p {
+  color: white;
+}
+
+/* ================== */
+
+.seasonal-sale {
+  background-image: url("./img/banner/b7.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 80%;
+  height: 60%;
+  padding: 20px 10px;
+  margin-left: 5rem;
+  position: relative;
+  right: 7rem;
+  bottom: 10rem;
+  margin-bottom: 2rem;
+}
+
+.sale {
+  position: relative;
+  top: 6rem;
+  left: 2rem;
+}
+
+.seasonal-sale h5 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 6px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 15px; /* Add space below the heading */
+  position: relative;
+  top: 3.5rem;
+}
+
+.seasonal-sale h3 {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  top: 3.5rem;
+
+}
+
+.footwear{
+  background-image: url("./img/banner/b4.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 80%;
+  height: 60%;
+  padding: 20px 10px;
+  margin-left: 5rem;
+  position: relative;
+  left: 23rem;
+  bottom: 25.5rem;
+  margin-bottom: 2rem;
+}
+
+.footwears {
+  position: relative;
+  top: 6rem;
+  left: 2rem;
+}
+
+.footwear h5 {
+  color: #fff;
+  font-size: 2px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 15px; /* Add space below the heading */
+  position: relative;
+  bottom: 2rem;
+}
+
+.footwear h3 {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  bottom: 2rem;
+}
+
+.new-trend{
+  background-image: url("./img/banner/b18.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 80%;
+  height: 60%;
+  padding: 20px 10px;
+  margin-left: 5rem;
+  position: relative;
+  left: 53rem;
+  bottom: 41rem;
+  margin-bottom: 2rem;
+}
+
+.new-trends {
+  position: relative;
+  top: 6rem;
+  left: 2rem;
+}
+
+.new-trends h5 {
+  color: #fff;
+  font-size: 2px;
+  margin: 0; /* Remove default margin */
+  text-align: left;
+  margin-bottom: 15px; /* Add space below the heading */
+  position: relative;
+  bottom: 2rem;
+}
+
+.new-trends h3 {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  bottom: 2rem;
+}
+
+
+
