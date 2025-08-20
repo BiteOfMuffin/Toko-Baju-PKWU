@@ -8,7 +8,9 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -912,6 +914,7 @@ footer .copyright {
   flex-direction: column;
   padding: 14px;
 }
+
 .about-p1 h1 {
   color: #016C34;
   text-align: center;
