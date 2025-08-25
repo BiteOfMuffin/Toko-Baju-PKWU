@@ -1286,7 +1286,7 @@ footer .copyright {
 }
 
 .about-p6 {
-  margin-bottom: 500px;
+  margin-bottom: 200px;
 }
 
 .about-p6-card {
@@ -1295,6 +1295,7 @@ footer .copyright {
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
+  
 }
 
 .about-p6-cover {
@@ -1396,4 +1397,185 @@ footer .copyright {
 
 .about-p6-card-box:hover {
   transform: translateY(-10px);
+}
+
+#body-bisnis-kami {
+  background-color: black;
+}
+
+.bisnis-kami-p1 {
+  background-color: black;
+  margin-bottom: 200px;
+  padding: 100px 0;
+}
+
+.bisnis-kami-p1 h1 {
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.bisnis-kami-p1 p {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 0 10px;
+  position: relative;
+  bottom: 30px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+
+.bisnis-kami-box-p2 h1 {
+  color: black;
+  font-size: 32px;
+  position: relative;
+  top: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.bisnis-kami-box-p2 p {
+  color: #333;
+  font-size: 16px;
+  position: relative;
+  top: 3rem;
+  text-align: center;
+  
+  margin: 0 auto;
+}
+
+.bisnis-kami-box-p2 {
+  background-color: white;
+  width: 100%;
+  height: 1300px;
+  border-radius: 60px;
+  margin: 0 auto; /* biar kotak ketengah secara horizontal */
+  position: relative;
+  bottom: 10rem;
+}
+
+.bisnis-kami-box-p2-card-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 10rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bisnis-kami-box-p2-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+  min-height: 450px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+.bisnis-kami-box-p2-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bisnis-kami-box-p2-card i {
+  font-size: 36px;
+  color: #009E42;
+  margin-bottom: 15px;
+}
+
+.bisnis-kami-box-p2-card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.bisnis-kami-box-p2-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: -30px 0;
+  text-align: left;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bisnis-kami-box-p2-card a {
+  font-size: 12px;
+  color: #088178;
+  text-decoration: none;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.bisnis-kami-box-p2-card a:hover {
+  color: #009E42;
+  text-decoration: underline;
+}
+
+.solusi-logistic-box img {
+  width: 700px; /* atur sesuai kebutuhan, misalnya 80px, 120px */
+  height: auto; /* biar tidak gepeng */
+  border-radius: 10px;
+  position: relative;
+  left: 4rem;
+}
+
+.solusi-logistic {
+  background: white;
+  width: 100%;
+  min-height: 900px;   /* biar ada tinggi minimal */
+  padding: 200px 0;   /* atas & bawah */
+  position: relative;
+}
+
+.solusi-logistic-box h1 {
+  
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  position: relative;
+  bottom: 40rem; /* atur sesuai kebutuhan */
+  max-width: 700px;
+  align-items: center;
+  position: relative;
+  left: 50rem;
+  text-align: left;
+}
+
+.solusi-logistic-box p {
+  max-width: 550px;
+  position: relative;
+  bottom: 40rem; /* atur sesuai kebutuhan */
+  font-size: 16px;
+  color: #555;
+  text-align: left;
+  left: 50rem;
+  font
+}
+
+.solusi-logistic h5 {
+  text-align: center;
+  font-size: 18px;
+  color: gray;
+  position: relative;
+  bottom: 40rem; /* atur sesuai kebutuhan */
+  left: 20.5rem;
+  font-weight: 500;
 }
