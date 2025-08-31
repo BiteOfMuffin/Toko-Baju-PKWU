@@ -1587,47 +1587,8 @@ h2 {
   font-size: 28px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  max-width: 600px;
-  position: relative;
-  left: 50rem;
-  bottom: 37rem;
-}
 
-li {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 25px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #f8f9fa;
-  transition: all 0.3s ease;
-  border-left: 4px solid #3498db;
-}
 
-li:hover {
-  background-color: #e3f2fd;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-li span {
-  display: inline-flex;
-  width: 36px;
-  height: 36px;
-  background-color: #3498db;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-right: 15px;
-  flex-shrink: 0;
-  box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
-}
 
 .benefit-text {
   flex: 1;
@@ -1636,25 +1597,12 @@ li span {
   text-align: justify;
 }
 
-li {
-  padding: 15px;
-}
 
-li span {
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
-}
 
 .benefit-text {
   font-size: 15px;
 }
 
-.content-container {
-  display: flex;
-  gap: 40px;
-  margin-top: 40px;
-}
 
 .perluas-jangkauan {
   flex: 1;
@@ -1675,4 +1623,46 @@ li span {
   line-height: 1.2;
   max-width: 750px;
 }
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-list {
+  position: relative;
+  left: 50rem;
+  bottom: 37rem;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.benefit-list span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: #4CAF50; 
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.benefit-text {
+  display: inline-block;
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid gray;
+  max-width: 600px;   
+}
+
 
