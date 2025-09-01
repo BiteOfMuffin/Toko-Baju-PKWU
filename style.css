@@ -1819,6 +1819,7 @@ h2 {
   transition: all 0.3s ease;
   text-align: center;
   border: 1px solid #eee;
+  
 }
 
 .benefit-card:hover {
@@ -1838,9 +1839,10 @@ h2 {
 }
 
 .benefit-card h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 15px;
   color: #333;
+  text-align: center;
 }
 
 .benefit-card p {
@@ -1886,7 +1888,7 @@ h2 {
   right: -20px;
   width: 40px;
   height: 2px;
-  background: #016C34;
+  
   z-index: -1;
 }
 
@@ -2051,38 +2053,3 @@ h2 {
   left: 0rem;
 }
 
-/* Footer */
-.footer {
-  padding: 40px 0;
-  background-color: #f8f9fa;
-  border-top: 1px solid #eee;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-content p {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-links a {
-  color: #666;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #4F46E5;
-}

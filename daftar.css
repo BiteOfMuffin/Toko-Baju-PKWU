@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+    text-decoration: none;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .auth-wrapper {
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    margin: 40px 0 20px 0;
+  }
+  
+  .back-button-container {
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .back-button {
+    background: transparent;
+    border: none;
+    color: #016C34;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  
+  .back-button:hover {
+    background: rgba(1, 108, 52, 0.1);
+  }
+  
+  .back-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .auth-container {
+    padding: 40px;
+  }
+  
+  .tabs-container {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 40px;
+    border: 1px solid #eee;
+  }
+  
+  .tab-button {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .tab-button.active {
+    background: #016C34;
+    color: white;
+    box-shadow: 0 4px 12px rgba(1, 108, 52, 0.2);
+  }
+  
+  .tab-button:hover:not(.active) {
+    background: rgba(1, 108, 52, 0.1);
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .form-header h1 {
+    color: #016C34;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  
+  .form-header p {
+    color: #6c757d;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+  
+  .input-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #f8f9fa;
+    color: #212529;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #016C34;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(1, 108, 52, 0.15);
+  }
+  
+  .input-group input:valid {
+    border-color: #016C34;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .checkbox-group input {
+    width: auto;
+    border-color: #016C34;
+  }
+  
+  .checkbox-group label {
+    color: #495057;
+    font-size: 14px;
+  }
+  
+  .terms-link {
+    color: #016C34;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .terms-link:hover {
+    color: #019444;
+    text-decoration: underline;
+  }
+  
+  .options-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .forgot-link {
+    color: #016C34;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .forgot-link:hover {
+    color: #019444;
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 8px;
+    display: block;
+    min-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+  
+  .submit-button {
+    background: linear-gradient(135deg, #016C34, #019444);
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 10px;
+    width: 100%;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 25px rgba(1, 108, 52, 0.3);
+  }
+  
+  .submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(1, 108, 52, 0.4);
+    background: linear-gradient(135deg, #019444, #016C34);
+  }
+  
+  .submit-button:active {
+    transform: translateY(-1px);
+  }
+  
+  .social-login {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .divider span {
+    padding: 0 15px;
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  .social-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+    background: white;
+    min-width: 140px;
+  }
+  
+  .social-btn.google {
+    color: #545454;
+  }
+  
+  .social-btn.google:hover {
+    border-color: #016C34;
+    background: rgba(1, 108, 52, 0.05);
+  }
+  
+  .social-btn.facebook {
+    color: #1877F2;
+  }
+  
+  .social-btn.facebook:hover {
+    border-color: #1877F2;
+    background: rgba(24, 119, 242, 0.05);
+  }
+  
+  .social-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Form visibility */
+  .form-section {
+    display: none;
+  }
+  
+  .form-section.active {
+    display: block;
+  }
+  
+  /* Footer Styles */
+  .section-p2 {
+    padding: 40px 20px;
+    background: #f8f9fa;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .footer-col {
+    margin-bottom: 20px;
+  }
+  
+  .footer-col h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #016C34;
+  }
+  
+  .footer-col p {
+    margin-bottom: 10px;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .footer-col a {
+    display: block;
+    color: #666;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-col a:hover {
+    color: #016C34;
+    padding-left: 5px;
+  }
+  
+  .follow .icon {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .follow .icon i {
+    font-size: 20px;
+    color: #666;
+    transition: all 0.3s ease;
+  }
+  
+  .follow .icon i:hover {
+    color: #016C34;
+    transform: translateY(-2px);
+  }
+  
+  .install .row {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .install img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .install p {
+    margin: 10px 0;
+  }
+  
+  .copyright {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+    max-width: 150px;
+    height: auto;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .auth-wrapper {
+      margin: 20px 10px 10px 10px;
+      border-radius: 15px;
+    }
+    
+    .auth-container {
+      padding: 30px 20px;
+    }
+    
+    .form-header h1 {
+      font-size: 28px;
+    }
+    
+    .tabs-container {
+      padding: 4px;
+    }
+    
+    .tab-button {
+      padding: 12px 15px;
+      font-size: 15px;
+    }
+    
+    .social-buttons {
+      flex-direction: column;
+    }
+    
+    .social-btn {
+      justify-content: center;
+    }
+    
+    footer {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+    
+    .install .row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .install img {
+      width: 150px;
+    }
+  }

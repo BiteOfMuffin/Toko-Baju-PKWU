@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Sekarang</title>
+    <link rel="stylesheet" href="daftar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="back-button-container">
+            <button class="back-button" onclick="window.location.href='joinwithus.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Kembali
+            </button>
+            
+        </div>
+        
+        <div class="auth-container">
+            <div class="tabs-container">
+                <button class="tab-button active" onclick="switchTab('register')">Daftar</button>
+                <button class="tab-button" onclick="switchTab('login')">Masuk</button>
+            </div>
+            
+            <div class="auth-forms">
+                <!-- Register Form -->
+                <div id="registerForm" class="form-section active">
+                    <div class="form-header">
+                        <h1>Buat Akun Baru</h1>
+                        <p>Isi data Anda untuk memulai perjalanan bersama kami</p>
+                    </div>
+                    
+                    <form id="registrationForm">
+                        <div class="input-group">
+                            <label for="fullName">Nama Lengkap</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <span class="error-message" id="fullNameError"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="password">Kata Sandi</label>
+                            <input type="password" id="password" name="password" required>
+                            <span class="error-message" id="passwordError"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <span class="error-message" id="confirmPasswordError"></span>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Saya menyetujui <a href="#" class="terms-link">syarat dan ketentuan</a></label>
+                            <span class="error-message" id="termsError"></span>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Daftar Sekarang</button>
+                    </form>
+                </div>
+                
+                <!-- Login Form -->
+                <div id="loginForm" class="form-section">
+                    <div class="form-header">
+                        <h1>Selamat Datang Kembali</h1>
+                        <p>Masuk ke akun Anda untuk melanjutkan</p>
+                    </div>
+                    
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                            <span class="error-message" id="loginEmailError"></span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="loginPassword">Kata Sandi</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                            <span class="error-message" id="loginPasswordError"></span>
+                        </div>
+                        
+                        <div class="options-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Ingat saya</label>
+                            </div>
+                            <a href="#" class="forgot-link">Lupa kata sandi?</a>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Masuk Sekarang</button>
+                    </form>
+                    
+                    <div class="social-login">
+                        <div class="divider">
+                            <span>atau masuk dengan</span>
+                        </div>
+                        <div class="social-buttons">
+                            <button class="social-btn google">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21.8055 10.0415H19.6065V11.8545H21.8055C21.9385 13.2715 22.6495 15.2905 20.9105 16.7305L20.8965 16.8625L19.2855 18.4315L19.4185 18.5555C20.5945 19.5985 21.4325 21.0405 21.4325 22.9995C21.4325 24.9265 20.6265 26.0665 19.4235 26.8945C18.2205 27.7235 16.6355 28.0675 14.8935 28.0675H12.0005V25.0895H14.6175C17.2015 25.0895 18.0685 23.9455 18.0685 22.2185C18.0685 20.6835 17.0445 19.6705 15.3725 19.6705H12.0005V16.6925H15.7105C18.1355 16.6925 19.5665 15.5135 19.8095 13.0845L19.9175 10.0415H12.0005V7.0635H21.8055V10.0415Z" fill="#FFC107"/>
+                                    <path d="M5.3784 16.6926C4.1754 16.6926 3.1514 17.7056 3.1514 19.2406C3.1514 20.7756 4.1754 21.7886 5.3784 21.7886C6.5814 21.7886 7.6054 20.7756 7.6054 19.2406C7.6054 17.7056 6.5814 16.6926 5.3784 16.6926Z" fill="#FF3D00"/>
+                                    <path d="M7.18457 13.0845C6.51757 12.1055 5.56157 11.4555 4.43957 11.2595L4.42457 11.1275L2.81357 9.5585L2.68057 9.6815C1.35357 10.9215 0.56757 12.6485 0.56757 14.5365C0.56757 16.4255 1.35357 18.1525 2.68057 19.3925L2.69457 19.5245L4.30557 21.0935L4.29157 21.2255C3.89857 22.5835 3.68957 23.9955 3.68957 25.4355C3.68957 26.8445 3.88957 28.2215 4.26257 29.5365L4.39557 29.6685L6.00657 31.2375L6.02057 31.1055C6.65357 30.2185 7.11357 29.1985 7.35657 28.0995L7.48957 27.9675L9.10057 26.3985L8.96757 26.2665C7.92557 24.8975 7.18457 23.2585 7.18457 21.4845C7.18457 19.7105 7.92557 18.0715 8.96757 16.7025L8.83457 16.5705L7.22357 14.9995L7.18457 13.0845Z" fill="#4CAF50"/>
+                                    <path d="M19.9172 13.0845L19.9312 13.2165L21.5422 14.7855L21.6752 14.6535C22.8782 13.4135 23.6642 11.6865 23.6642 9.7975C23.6642 7.9085 22.8782 6.1815 21.5512 4.9415L21.5362 4.8095L19.9252 3.2405L19.7922 3.3725C18.4652 4.6125 17.6792 6.3395 17.6792 8.2275C17.6792 10.1165 18.4652 11.8435 19.7922 13.0835L19.9172 13.0845Z" fill="#1976D2"/>
+                                </svg>
+                                Google
+                            </button>
+                            <button class="social-btn facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 17.978 4.293 22.894 10.02 24V15.463H7.03V12.073H10.02V9.622C10.02 6.683 11.824 4.975 14.52 4.975C15.838 4.975 17.212 5.215 17.212 5.215V8.005H15.838C14.519 8.005 14.08 8.812 14.08 9.65V12.073H17.11L16.638 15.463H14.08V24C20.377 23.316 24 18.158 24 12.073Z" fill="#1877F2"/>
+                                </svg>
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
