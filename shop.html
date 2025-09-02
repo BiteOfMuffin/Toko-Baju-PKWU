@@ -1,242 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - E-commerce</title>
+    <link rel="icon" type="image/x-icon" href="./img/icon1.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="icon" type="image/x-icon" href="./img/icon1.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+  <body>
     <section id="header">
-        <a href="index.html"><img class="Logo-header" src="img/logo.png" class="logo"></a>
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class='bx bx-shopping-bag'></i></a></li>
-                <a href="#" id="close"><i class='bx bx-x'></i></a>
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="cart.html"><i class='bx bx-shopping-bag'></i></a>
-            <i id="bar" class='bx bx-menu'></i>
-        </div>
+      <a href="index.html"
+        ><img class="Logo-header" src="img/logo.png" class="logo"
+      /></a>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="bisnis-kami.html">Our Business</a></li>
+          <li><a href="joinwithus.html">Join with Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="lg-bag">
+            <a href="cart.html">
+              <i class="bx bx-shopping-bag"></i>
+              <span id="cart-count">0</span>
+            </a>
+          </li>
+          <a href="#" id="close"><i class="bx bx-x"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        <i id="bar" class="bx bx-menu"></i>
+      </div>
     </section>
+
     <section id="banner-shop" class="section-m1">
-        <h4>#stayhome</h4>
-        <h2>save more with coupons $ up to 70% off</h2>
+      <h4>#stayhome</h4>
+      <h2>save more with coupons & up to 70% off</h2>
     </section>
 
     <section id="product1" class="section-p1">
-        <h2>Featured Products</h2>
-        <p>Summer Collection New Modern Design</p>
-        <div class="pro-container">
-            <div class="pro">
-                <img class="shirt" src="img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
+      <div class="pro-container">
+        <div
+          class="pro"
+          data-id="f1"
+          data-name="Cartoon Astronaut T-Shirts"
+          data-price="55000"
+          data-image="img/products/f1.jpg"
+        >
+          <img class="shirt" src="img/products/f1.jpg" alt="Product 1" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Cartoon Astronaut T-Shirts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
             </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f2.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f3.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f4.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f5.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f6.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f7.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
-            <div class="pro">
-                <img class="shirt" src="img/products/f8.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                        <i class='bx bxs-star'></i>
-                    </div>
-                    <h4>₹2499</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart cart'></i></a>
-            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
         </div>
+        <div
+          class="pro"
+          data-id="f2"
+          data-name="Green Leaf T-Shirts"
+          data-price="55000"
+          data-image="img/products/f2.jpg"
+        >
+          <img class="shirt" src="img/products/f2.jpg" alt="Product 2" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Green Leaf T-Shirts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="f3"
+          data-name="Flower Pattern T-Shirts"
+          data-price="55000"
+          data-image="img/products/f3.jpg"
+        >
+          <img class="shirt" src="img/products/f3.jpg" alt="Product 3" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Flower Pattern T-Shirts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="f4"
+          data-name="White Flower T-Shirts"
+          data-price="55000"
+          data-image="img/products/f4.jpg"
+        >
+          <img class="shirt" src="img/products/f4.jpg" alt="Product 4" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>White Flower T-Shirts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="f5"
+          data-name="Blue Flower T-Shirts"
+          data-price="55000"
+          data-image="img/products/f5.jpg"
+        >
+          <img class="shirt" src="img/products/f5.jpg" alt="Product 5" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Blue Flower T-Shirts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="f6"
+          data-name="Two-Tone Jacket"
+          data-price="64000"
+          data-image="img/products/f6.jpg"
+        >
+          <img class="shirt" src="img/products/f6.jpg" alt="Product 6" />
+          <div class="des">
+            <span>Puma</span>
+            <h5>Two-Tone Jacket</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp64,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="f7"
+          data-name="Khaki Pants"
+          data-price="57000"
+          data-image="img/products/f7.jpg"
+        >
+          <img class="shirt" src="img/products/f7.jpg" alt="Product 7" />
+          <div class="des">
+            <span>Zara</span>
+            <h5>Khaki Pants</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp57,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="f8"
+          data-name="Cat Blouse"
+          data-price="52000"
+          data-image="img/products/f8.jpg"
+        >
+          <img class="shirt" src="img/products/f8.jpg" alt="Product 8" />
+          <div class="des">
+            <span>H&M</span>
+            <h5>Cat Blouse</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp52,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n1"
+          data-name="Light Blue Shirt"
+          data-price="59000"
+          data-image="img/products/n1.jpg"
+        >
+          <img class="shirt" src="img/products/n1.jpg" alt="New Arrival 1" />
+          <div class="des">
+            <span>H&M</span>
+            <h5>Light Blue Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp59,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n2"
+          data-name="Gray Formal Shirt"
+          data-price="59000"
+          data-image="img/products/n2.jpg"
+        >
+          <img class="shirt" src="img/products/n2.jpg" alt="New Arrival 2" />
+          <div class="des">
+            <span>Zara</span>
+            <h5>Gray Formal Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp59,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n3"
+          data-name="White Formal Shirt"
+          data-price="59000"
+          data-image="img/products/n3.jpg"
+        >
+          <img class="shirt" src="img/products/n3.jpg" alt="New Arrival 3" />
+          <div class="des">
+            <span>Zara</span>
+            <h5>White Formal Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp59,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n4"
+          data-name="Army Pattern Shirt"
+          data-price="61000"
+          data-image="img/products/n4.jpg"
+        >
+          <img class="shirt" src="img/products/n4.jpg" alt="New Arrival 4" />
+          <div class="des">
+            <span>H&M</span>
+            <h5>Army Pattern Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp61,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n5"
+          data-name="Denim Jacket"
+          data-price="73000"
+          data-image="img/products/n5.jpg"
+        >
+          <img class="shirt" src="img/products/n5.jpg" alt="New Arrival 5" />
+          <div class="des">
+            <span>Levi's</span>
+            <h5>Denim Jacket</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp73,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n6"
+          data-name="Gray Shorts"
+          data-price="50000"
+          data-image="img/products/n6.jpg"
+        >
+          <img class="shirt" src="img/products/n6.jpg" alt="New Arrival 6" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Gray Shorts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp50,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n7"
+          data-name="Brown Formal Shirt"
+          data-price="59000"
+          data-image="img/products/n7.jpg"
+        >
+          <img class="shirt" src="img/products/n7.jpg" alt="New Arrival 7" />
+          <div class="des">
+            <span>Zara</span>
+            <h5>Brown Formal Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp59,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="n8"
+          data-name="Black Casual Shirt"
+          data-price="57000"
+          data-image="img/products/n8.jpg"
+        >
+          <img class="shirt" src="img/products/n8.jpg" alt="New Arrival 8" />
+          <div class="des">
+            <span>H&M</span>
+            <h5>Black Casual Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp57,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p1"
+          data-name="Vintage Blue Jeans"
+          data-price="66000"
+          data-image="img/products/p1.jpg"
+        >
+          <img class="shirt" src="img/products/p1.jpg" alt="Product 17" />
+          <div class="des">
+            <span>Levi's</span>
+            <h5>Vintage Blue Jeans</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp66,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p2"
+          data-name="Classic White Sneakers"
+          data-price="70000"
+          data-image="img/products/p2.jpg"
+        >
+          <img class="shirt" src="img/products/p2.jpg" alt="Product 18" />
+          <div class="des">
+            <span>Nike</span>
+            <h5>Classic White Sneakers</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp70,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p3"
+          data-name="Red Plaid Flannel"
+          data-price="55000"
+          data-image="img/products/p3.jpg"
+        >
+          <img class="shirt" src="img/products/p3.jpg" alt="Product 19" />
+          <div class="des">
+            <span>Uniqlo</span>
+            <h5>Red Plaid Flannel</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p4"
+          data-name="Leather Biker Jacket"
+          data-price="100000"
+          data-image="img/products/p4.jpg"
+        >
+          <img class="shirt" src="img/products/p4.jpg" alt="Product 20" />
+          <div class="des">
+            <span>AllSaints</span>
+            <h5>Leather Biker Jacket</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp100,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p5"
+          data-name="Gray Hoodie"
+          data-price="60000"
+          data-image="img/products/p5.jpg"
+        >
+          <img class="shirt" src="img/products/p5.jpg" alt="Product 21" />
+          <div class="des">
+            <span>Champion</span>
+            <h5>Gray Hoodie</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp60,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p6"
+          data-name="Black Chinos"
+          data-price="58000"
+          data-image="img/products/p6.jpg"
+        >
+          <img class="shirt" src="img/products/p6.jpg" alt="Product 22" />
+          <div class="des">
+            <span>Dockers</span>
+            <h5>Black Chinos</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp58,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p7"
+          data-name="Beige Trench Coat"
+          data-price="94000"
+          data-image="img/products/p7.jpg"
+        >
+          <img class="shirt" src="img/products/p7.jpg" alt="Product 23" />
+          <div class="des">
+            <span>Burberry</span>
+            <h5>Beige Trench Coat</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp94,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="p8"
+          data-name="Striped Long Sleeve"
+          data-price="51000"
+          data-image="img/products/p8.jpg"
+        >
+          <img class="shirt" src="img/products/p8.jpg" alt="Product 24" />
+          <div class="des">
+            <span>Comme des Garçons</span>
+            <h5>Striped Long Sleeve</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp51,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q1"
+          data-name="Cargo Shorts"
+          data-price="53000"
+          data-image="img/products/q1.jpg"
+        >
+          <img class="shirt" src="img/products/q1.jpg" alt="Product 25" />
+          <div class="des">
+            <span>Carhartt</span>
+            <h5>Cargo Shorts</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp53,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q2"
+          data-name="Wool Sweater"
+          data-price="63000"
+          data-image="img/products/q2.jpg"
+        >
+          <img class="shirt" src="img/products/q2.jpg" alt="Product 26" />
+          <div class="des">
+            <span>J.Crew</span>
+            <h5>Wool Sweater</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp63,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q3"
+          data-name="Green Bomber Jacket"
+          data-price="75000"
+          data-image="img/products/q3.jpg"
+        >
+          <img class="shirt" src="img/products/q3.jpg" alt="Product 27" />
+          <div class="des">
+            <span>Alpha Industries</span>
+            <h5>Green Bomber Jacket</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp75,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q4"
+          data-name="Linen Shirt"
+          data-price="55000"
+          data-image="img/products/q4.jpg"
+        >
+          <img class="shirt" src="img/products/q4.jpg" alt="Product 28" />
+          <div class="des">
+            <span>Mango</span>
+            <h5>Linen Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp55,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q5"
+          data-name="Black Chelsea Boots"
+          data-price="82000"
+          data-image="img/products/q5.jpg"
+        >
+          <img class="shirt" src="img/products/q5.jpg" alt="Product 29" />
+          <div class="des">
+            <span>Dr. Martens</span>
+            <h5>Black Chelsea Boots</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp82,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q6"
+          data-name="Hawaiian Shirt"
+          data-price="52000"
+          data-image="img/products/q6.jpg"
+        >
+          <img class="shirt" src="img/products/q6.jpg" alt="Product 30" />
+          <div class="des">
+            <span>Tommy Bahama</span>
+            <h5>Hawaiian Shirt</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp52,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q7"
+          data-name="Corduroy Trousers"
+          data-price="60000"
+          data-image="img/products/q7.jpg"
+        >
+          <img class="shirt" src="img/products/q7.jpg" alt="Product 31" />
+          <div class="des">
+            <span>Everlane</span>
+            <h5>Corduroy Trousers</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp60,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+        <div
+          class="pro"
+          data-id="q8"
+          data-name="Graphic Print Hoodie"
+          data-price="65000"
+          data-image="img/products/q8.jpg"
+        >
+          <img class="shirt" src="img/products/q8.jpg" alt="Product 32" />
+          <div class="des">
+            <span>Stüssy</span>
+            <h5>Graphic Print Hoodie</h5>
+            <div class="star">
+              <i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i><i class="bx bxs-star"></i
+              ><i class="bx bxs-star"></i>
+            </div>
+            <h4>Rp65,000</h4>
+          </div>
+          <a href="#" class="add-to-cart"><i class="bx bx-cart cart"></i></a>
+        </div>
+      </div>
     </section>
 
-    <div class="pagination" id="pagination">
-        <button class="page-btn active" data-page="1">1</button>
-        <button class="page-btn" data-page="2">2</button>
-        <button class="page-btn next" data-page="next">→</button>
-    </div>
+    <div class="pagination" id="pagination"></div>
 
     <section id="newsletter" class="section-p1 section-m1">
-            <div class="newstext">
-                <h4>Sign Up For Newsletters</h4>
-                <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
-            </div>
-            <div class="form">
-                <input type="text" placeholder="Your email address">
-                <button class="normal">Sign Up</button>
-            </div>
-        </section>
+      <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
 
     <footer class="section-p1">
-        <div class="col">
-            <img class="logo" src="./img/logo.png" alt="">
-            <h4>Contact</h4>
-            <p><strong>Alamat:</strong> JL. Monang Maning Danta no.12</p>
-            <p><strong>No Hp:</strong> +628837761167</p>
-            <p><strong>Jam:</strong> 10:00 - 18:00, Sen - Sab</p>
-            <div class="follow">
-                <h4>Follow us</h4>
-                <div class="icon">
-                    <i class='bx bxl-facebook'></i>
-                    <i class='bx bxl-twitter'></i>
-                    <i class='bx bxl-instagram'></i>
-                    <i class='bx bxl-pinterest-alt'></i>
-                    <i class='bx bxl-youtube'></i>
-                </div>
-            </div>
+      <div class="col">
+        <img class="logo" src="./img/logo.png" alt="Logo" />
+        <h4>Contact</h4>
+        <p>
+          <strong>Alamat:</strong> JL. Monang Maning Danta no.12, Denpasar, Bali
+        </p>
+        <p><strong>No Hp:</strong> +62 883 7761 167</p>
+        <p><strong>Jam:</strong> 10:00 - 18:00, Sen - Sab</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="bx bxl-facebook"></i><i class="bx bxl-twitter"></i
+            ><i class="bx bxl-instagram"></i><i class="bx bxl-pinterest-alt"></i
+            ><i class="bx bxl-youtube"></i>
+          </div>
         </div>
-
-        <div class="col">
-            <h4>About</h4>
-            <a href="#">About us</a>
-            <a href="#">Devlivery Information</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a><a href="#">Delivery Information</a
+        ><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a
+        ><a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">View Cart</a><a href="#">My Wishlist</a
+        ><a href="#">Track My Order</a><a href="#">Help</a>
+      </div>
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="./img/pay/app.jpg" alt="App Store" /><img
+            src="./img/pay/play.jpg"
+            alt="Google Play"
+          />
         </div>
-
-        <div class="col">
-            <h4>My Account</h4>
-            <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
-            <a href="#">Help</a>
-        </div>
-
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store or Google Play</p>
-            <div class="row">
-                <img src="./img/pay/app.jpg" alt="">
-                <img src="./img/pay/play.jpg" alt="">
-            </div>
-            <p>Secured Payment Gateways</p>
-            <img src="./img/pay/pay.png" alt="">
-        </div>
-
-        <div class="copyright">
-            <p>© 2025 ...</p>
-        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="./img/pay/pay.png" alt="Payment Methods" />
+      </div>
+      <div class="copyright">
+        <p>© 2025, Cara E-commerce</p>
+      </div>
     </footer>
-</body>
-
+    <div id="add-to-cart-modal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <i class="bx bx-check-circle success-icon"></i>
+        <h2>Successfully Added!</h2>
+        <p id="modal-added-item-name">Product has been added to your cart.</p>
+        <button class="normal continue-shopping-btn">Continue Shopping</button>
+        <a href="cart.html" class="view-cart-link">View Cart</a>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

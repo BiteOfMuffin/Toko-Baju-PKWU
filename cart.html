@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="icon" type="image/x-icon" href="./img/icon1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="header">
+        <a href="index.html"><img class="Logo-header" src="img/logo.png" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="bisnis-kami.html">Our Business</a></li>
+                <li><a href="joinwithus.html">Join with Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="active" href="cart.html"><i class='bx bx-shopping-bag'></i><span id="cart-count">0</span></a></li>
+                <a href="#" id="close"><i class='bx bx-x'></i></a>
+            </ul>
+        </div>
+        <div id="mobile"><a href="cart.html"><i class='bx bx-shopping-bag'></i></a><i id="bar" class='bx bx-menu'></i></div>
+    </section>
+
+    <section id="page-header" class="about-header">
+        <h2>#YourCart</h2>
+        <p>Review your items and proceed to checkout</p>
+    </section>
+
+    <section id="cart-container" class="section-p1">
+        <div class="cart-items" id="cart-items-container"></div>
+        <div id="cart-summary">
+            <h3>Cart Summary</h3>
+            <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">₹ 0.00</span></div>
+            <div class="summary-row"><span>Shipping</span><span>Free</span></div>
+            <hr>
+            <div class="summary-row total"><span>Total</span><strong id="cart-total">₹ 0.00</strong></div>
+            <button id="checkout-btn" class="normal">Proceed to Checkout</button>
+        </div>
+        <div id="cart-empty-message" style="display: none; text-align: center; width: 100%; padding: 40px;">
+            <h2>Your cart is empty.</h2>
+            <p>Looks like you haven't added anything to your cart yet.</p>
+            <a href="shop.html"><button class="normal">Continue Shopping</button></a>
+        </div>
+    </section>
+
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Checkout</h2>
+            <p>Please select your payment method:</p>
+            <div class="payment-options">
+                <label><input type="radio" name="payment" value="credit_card" checked> Credit Card</label>
+                <div id="credit_card-details" class="payment-details active">
+                    <input type="text" id="credit-card-number" placeholder="Enter Card Number (e.g., 16 digits)" maxlength="16">
+                </div>
+                <label><input type="radio" name="payment" value="bank_transfer"> Bank Transfer</label>
+                <div id="bank_transfer-details" class="payment-details">
+                    <input type="text" id="bank-va-number" placeholder="Enter Virtual Account Number">
+                </div>
+                <label><input type="radio" name="payment" value="gopay"> GoPay</label>
+            </div>
+            <p id="payment-error" class="error-message"></p>
+            <div class="modal-total"><span>Total Payment:</span><strong id="modal-total-amount">₹ 0.00</strong></div>
+            <button id="pay-now-btn" class="normal">Pay Now</button>
+        </div>
+    </div>
+    
+    <div id="payment-success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class='bx bx-check-circle success-icon'></i>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your order is being processed.</p>
+            <a href="shop.html"><button class="normal">Continue Shopping</button></a>
+        </div>
+    </div>
+
+    <footer class="section-p1">
+        </footer>
+    <script src="script.js"></script>
+</body>
+</html>
