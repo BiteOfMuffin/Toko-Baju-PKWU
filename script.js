@@ -449,3 +449,74 @@ document.addEventListener("DOMContentLoaded", function () {
         displayCartItems();
     }
 });
+
+
+// aaaaaaaa
+
+// script.js
+// Image gallery functionality
+const thumbnails = document.querySelectorAll('.thumbnail');
+const mainImage = document.getElementById('mainImage');
+
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', function() {
+        // Remove active class from all thumbnails
+        thumbnails.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked thumbnail
+        this.classList.add('active');
+        
+        // Update main image
+        mainImage.src = this.dataset.src || this.src;
+    });
+});
+
+// Quantity control
+const quantityInput = document.getElementById('quantity');
+const increaseBtn = document.getElementById('increaseQty');
+const decreaseBtn = document.getElementById('decreaseQty');
+
+increaseBtn.addEventListener('click', function() {
+    let currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+});
+
+decreaseBtn.addEventListener('click', function() {
+    let currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+    }
+});
+
+// Variant selection
+const variantOptions = document.querySelectorAll('.variant-option');
+
+variantOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        // Remove selected class from all options
+        variantOptions.forEach(o => o.classList.remove('selected'));
+        
+        // Add selected class to clicked option
+        this.classList.add('selected');
+    });
+});
+
+// Floating cart button animation
+const floatingCart = document.querySelector('.floating-cart');
+
+floatingCart.addEventListener('click', function() {
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        this.style.transform = 'scale(1)';
+    }, 150);
+    
+    alert('Produk ditambahkan ke troli!');
+});
+
+// Smooth scroll for reviews
+document.querySelector('.reviews-section h2').addEventListener('click', function() {
+    window.scrollTo({
+        top: document.querySelector('.reviews-section').offsetTop - 100,
+        behavior: 'smooth'
+    });
+});
