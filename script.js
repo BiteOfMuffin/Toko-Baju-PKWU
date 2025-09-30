@@ -334,17 +334,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 cartItemsContainer.style.display = 'flex';
                 cartSummary.style.display = 'block';
 
-                cart.forEach(item => {
+                cart.forEach((item, index) => {
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('cart-item');
                     itemElement.innerHTML = `
                         <img src="${item.image}" alt="${item.name}">
                         <div class="cart-item-details">
                             <h5>${item.name}</h5>
-                            <span>ID: ${item.id}</span>
+                            <div class="quantity-control">
+                                <button class="quantity-btn decrease" data-index="${index}">-</button>
+                                <input type="text" class="quantity-value" value="${item.quantity || 1}" readonly>
+                                <button class="quantity-btn increase" data-index="${index}">+</button>
+                            </div>
                         </div>
                         <div class="cart-item-actions">
-                            <span class="item-price">${formatRupiah(item.price)}</span>
+                            <span class="item-price">${formatRupiah((item.price || 0) * (item.quantity || 1))}</span>
                             <a href="#" class="remove-item" data-id="${item.id}"><i class='bx bxs-trash'></i></a>
                         </div>
                     `;
@@ -352,12 +356,34 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 updateCartTotals();
                 addRemoveEventListeners();
+                addQuantityEventListeners();
             }
+        }
+
+        function addQuantityEventListeners() {
+            document.querySelectorAll('.quantity-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    const isIncrease = e.target.classList.contains('increase');
+                    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+                    let qty = cart[index].quantity || 1;
+
+                    if (isIncrease) {
+                        qty++;
+                    } else {
+                        if (qty > 1) qty--;
+                    }
+
+                    cart[index].quantity = qty;
+                    sessionStorage.setItem('cart', JSON.stringify(cart));
+                    displayCartItems();
+                });
+            });
         }
 
         function updateCartTotals() {
             const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-            const subtotal = cart.reduce((total, item) => total + item.price, 0);
+            const subtotal = cart.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
             const totalText = formatRupiah(subtotal);
             
             cartSubtotalEl.textContent = totalText;
@@ -502,26 +528,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Floating cart button animation
-    const floatingCart = document.querySelector('.floating-cart');
-
-    floatingCart.addEventListener('click', function() {
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 150);
-        
-        alert('Produk ditambahkan ke troli!');
-    });
-
-    // Smooth scroll for reviews
-    document.querySelector('.reviews-section h2').addEventListener('click', function() {
-        window.scrollTo({
-            top: document.querySelector('.reviews-section').offsetTop - 100,
-            behavior: 'smooth'
-        });
-    });
-
     // ========== LOGIKA UNTUK TOMBOL BELI SEKARANG (PAYMENT MODAL) ==========
     const buyNowBtn = document.querySelector('.btn-buy');
     if (buyNowBtn && paymentModal) {
@@ -535,4 +541,54 @@ document.addEventListener("DOMContentLoaded", function () {
             paymentModal.classList.add('show');
         });
     }
+
+    // ========== LOGIKA UNTUK TOMBOL TAMBAH KE TROLI DI HALAMAN DETAIL ==========
+    const addToCartBtn = document.querySelector('.btn-cart');
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', () => {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            const variant = document.querySelector('.variant-option.selected')?.textContent || 'Default';
+            const priceStr = document.querySelector('.product-price').textContent.replace('Rp', '').replace(/\./g, '');
+            const price = parseInt(priceStr) || 0;
+            const product = {
+                id: 'cartoon-astronaut-' + variant.replace(/\s/g, '-').toLowerCase(),
+                name: document.querySelector('.product-title').textContent,
+                price: price,
+                image: document.getElementById('mainImage').src,
+                quantity: qty,
+                variant: variant
+            };
+
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += qty;
+            } else {
+                cart.push(product);
+            }
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCounter();
+
+            if (addToCartModal) {
+                document.getElementById('modal-added-item-name').textContent = `${product.name} has been added to your cart.`;
+                addToCartModal.classList.add('show');
+            }
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const bar = document.getElementById('bar');
+  const close = document.getElementById('close');
+  const navbar = document.getElementById('navbar');
+
+  if (bar && close && navbar) {
+    bar.addEventListener('click', () => {
+      navbar.classList.add('active');
+    });
+
+    close.addEventListener('click', () => {
+      navbar.classList.remove('active');
+    });
+  }
 });
