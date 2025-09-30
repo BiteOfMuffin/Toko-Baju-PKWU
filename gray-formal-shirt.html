@@ -212,6 +212,38 @@
         </svg>
     </div>
 
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Checkout</h2>
+            <p>Please select your payment method:</p>
+            <div class="payment-options">
+                <label><input type="radio" name="payment" value="credit_card" checked> Credit Card</label>
+                <div id="credit_card-details" class="payment-details active">
+                    <input type="text" id="credit-card-number" placeholder="Enter Card Number (e.g., 16 digits)" maxlength="16">
+                </div>
+                <label><input type="radio" name="payment" value="bank_transfer"> Bank Transfer</label>
+                <div id="bank_transfer-details" class="payment-details">
+                    <input type="text" id="bank-va-number" placeholder="Enter Virtual Account Number">
+                </div>
+                <label><input type="radio" name="payment" value="gopay"> GoPay</label>
+            </div>
+            <p id="payment-error" class="error-message"></p>
+            <div class="modal-total"><span>Total Payment:</span><strong id="modal-total-amount">Rp0</strong></div>
+            <button id="pay-now-btn" class="normal">Pay Now</button>
+        </div>
+    </div>
+    
+    <div id="payment-success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class='bx bx-check-circle success-icon'></i>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your order is being processed.</p>
+            <a href="shop.html"><button class="normal">Continue Shopping</button></a>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

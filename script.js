@@ -310,6 +310,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ========== LOGIKA HALAMAN KERANJANG & CHECKOUT (CART.HTML) ==========
     const cartPage = document.getElementById('cart-container');
+    const paymentModal = document.getElementById('payment-modal');
+    const paymentSuccessModal = document.getElementById('payment-success-modal');
     if (cartPage) {
         const cartItemsContainer = document.getElementById('cart-items-container');
         const cartSummary = document.getElementById('cart-summary');
@@ -318,8 +320,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const cartEmptyMessage = document.getElementById('cart-empty-message');
         
         const checkoutBtn = document.getElementById('checkout-btn');
-        const paymentModal = document.getElementById('payment-modal');
-        const paymentSuccessModal = document.getElementById('payment-success-modal');
         
         function displayCartItems() {
             const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
@@ -390,133 +390,149 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         
-        const paymentOptions = document.querySelectorAll('input[name="payment"]');
-        const paymentDetails = document.querySelectorAll('.payment-details');
-        paymentOptions.forEach(option => {
-            option.addEventListener('change', () => {
-                paymentDetails.forEach(detail => detail.classList.remove('active'));
-                const targetDetail = document.getElementById(`${option.value}_details`);
-                if (targetDetail) {
-                    targetDetail.classList.add('active');
-                }
-            });
-        });
-
-        const payNowBtn = document.getElementById('pay-now-btn');
-        const paymentError = document.getElementById('payment-error');
-        if (payNowBtn) {
-            payNowBtn.addEventListener('click', () => {
-                const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
-                let isValid = true;
-                paymentError.textContent = '';
-                if (selectedPayment === 'credit_card') {
-                    const ccNumber = document.getElementById('credit-card-number').value;
-                    if (ccNumber.length !== 16 || !/^\d+$/.test(ccNumber)) {
-                        paymentError.textContent = 'Please enter a valid 16-digit card number.';
-                        isValid = false;
-                    }
-                }
-                if (selectedPayment === 'bank_transfer') {
-                    const vaNumber = document.getElementById('bank-va-number').value;
-                    if (vaNumber.length < 8) {
-                        paymentError.textContent = 'Please enter a valid Virtual Account number.';
-                        isValid = false;
-                    }
-                }
-                if (!isValid) return;
-                payNowBtn.textContent = 'Processing...';
-                payNowBtn.disabled = true;
-                setTimeout(() => {
-                    paymentModal.classList.remove('show');
-                    paymentSuccessModal.classList.add('show');
-                    sessionStorage.removeItem('cart');
-                    displayCartItems();
-                    updateCartCounter();
-                    payNowBtn.textContent = 'Pay Now';
-                    payNowBtn.disabled = false;
-                }, 2500);
-            });
-        }
-        
-        document.querySelectorAll('.modal-overlay').forEach(modal => {
-            const closeBtn = modal.querySelector('.close-modal');
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('show'));
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.remove('show');
-            });
-        });
-        
         displayCartItems();
     }
-});
 
-
-// aaaaaaaa
-
-// script.js
-// Image gallery functionality
-const thumbnails = document.querySelectorAll('.thumbnail');
-const mainImage = document.getElementById('mainImage');
-
-thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('click', function() {
-        // Remove active class from all thumbnails
-        thumbnails.forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked thumbnail
-        this.classList.add('active');
-        
-        // Update main image
-        mainImage.src = this.dataset.src || this.src;
+    // ========== LOGIKA PEMBAYARAN GLOBAL (UNTUK CART DAN BUY NOW) ==========
+    const paymentOptions = document.querySelectorAll('input[name="payment"]');
+    const paymentDetails = document.querySelectorAll('.payment-details');
+    paymentOptions.forEach(option => {
+        option.addEventListener('change', () => {
+            paymentDetails.forEach(detail => detail.classList.remove('active'));
+            const targetDetail = document.getElementById(`${option.value}-details`);
+            if (targetDetail) {
+                targetDetail.classList.add('active');
+            }
+        });
     });
-});
 
-// Quantity control
-const quantityInput = document.getElementById('quantity');
-const increaseBtn = document.getElementById('increaseQty');
-const decreaseBtn = document.getElementById('decreaseQty');
-
-increaseBtn.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    quantityInput.value = currentValue + 1;
-});
-
-decreaseBtn.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    if (currentValue > 1) {
-        quantityInput.value = currentValue - 1;
+    const payNowBtn = document.getElementById('pay-now-btn');
+    const paymentError = document.getElementById('payment-error');
+    const isCartPage = !!cartPage; // Deteksi apakah ini halaman cart
+    if (payNowBtn) {
+        payNowBtn.addEventListener('click', () => {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            let isValid = true;
+            paymentError.textContent = '';
+            if (selectedPayment === 'credit_card') {
+                const ccNumber = document.getElementById('credit-card-number').value;
+                if (ccNumber.length !== 16 || !/^\d+$/.test(ccNumber)) {
+                    paymentError.textContent = 'Please enter a valid 16-digit card number.';
+                    isValid = false;
+                }
+            }
+            if (selectedPayment === 'bank_transfer') {
+                const vaNumber = document.getElementById('bank-va-number').value;
+                if (vaNumber.length < 8) {
+                    paymentError.textContent = 'Please enter a valid Virtual Account number.';
+                    isValid = false;
+                }
+            }
+            if (!isValid) return;
+            payNowBtn.textContent = 'Processing...';
+            payNowBtn.disabled = true;
+            setTimeout(() => {
+                paymentModal.classList.remove('show');
+                paymentSuccessModal.classList.add('show');
+                if (isCartPage) {
+                    sessionStorage.removeItem('cart');
+                } // Hanya clear cart jika di halaman cart; untuk buy now, jangan clear
+                if (isCartPage) {
+                    displayCartItems();
+                }
+                updateCartCounter();
+                payNowBtn.textContent = 'Pay Now';
+                payNowBtn.disabled = false;
+            }, 2500);
+        });
     }
-});
-
-// Variant selection
-const variantOptions = document.querySelectorAll('.variant-option');
-
-variantOptions.forEach(option => {
-    option.addEventListener('click', function() {
-        // Remove selected class from all options
-        variantOptions.forEach(o => o.classList.remove('selected'));
-        
-        // Add selected class to clicked option
-        this.classList.add('selected');
-    });
-});
-
-// Floating cart button animation
-const floatingCart = document.querySelector('.floating-cart');
-
-floatingCart.addEventListener('click', function() {
-    this.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        this.style.transform = 'scale(1)';
-    }, 150);
     
-    alert('Produk ditambahkan ke troli!');
-});
-
-// Smooth scroll for reviews
-document.querySelector('.reviews-section h2').addEventListener('click', function() {
-    window.scrollTo({
-        top: document.querySelector('.reviews-section').offsetTop - 100,
-        behavior: 'smooth'
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        const closeBtn = modal.querySelector('.close-modal');
+        if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
     });
+
+    // Image gallery functionality
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('mainImage');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            // Remove active class from all thumbnails
+            thumbnails.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked thumbnail
+            this.classList.add('active');
+            
+            // Update main image
+            mainImage.src = this.dataset.src || this.src;
+        });
+    });
+
+    // Quantity control
+    const quantityInput = document.getElementById('quantity');
+    const increaseBtn = document.getElementById('increaseQty');
+    const decreaseBtn = document.getElementById('decreaseQty');
+
+    increaseBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    });
+
+    decreaseBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    });
+
+    // Variant selection
+    const variantOptions = document.querySelectorAll('.variant-option');
+
+    variantOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from all options
+            variantOptions.forEach(o => o.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+        });
+    });
+
+    // Floating cart button animation
+    const floatingCart = document.querySelector('.floating-cart');
+
+    floatingCart.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 150);
+        
+        alert('Produk ditambahkan ke troli!');
+    });
+
+    // Smooth scroll for reviews
+    document.querySelector('.reviews-section h2').addEventListener('click', function() {
+        window.scrollTo({
+            top: document.querySelector('.reviews-section').offsetTop - 100,
+            behavior: 'smooth'
+        });
+    });
+
+    // ========== LOGIKA UNTUK TOMBOL BELI SEKARANG (PAYMENT MODAL) ==========
+    const buyNowBtn = document.querySelector('.btn-buy');
+    if (buyNowBtn && paymentModal) {
+        buyNowBtn.addEventListener('click', () => {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            const priceStr = document.querySelector('.product-price').textContent.replace('Rp', '').replace(/\./g, '');
+            const price = parseInt(priceStr) || 0;
+            const total = price * qty;
+            const totalText = formatRupiah(total);
+            document.getElementById('modal-total-amount').textContent = totalText;
+            paymentModal.classList.add('show');
+        });
+    }
 });
