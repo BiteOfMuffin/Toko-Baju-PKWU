@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // ========== NAVBAR & HEADER ==========
     const bar = document.getElementById("bar");

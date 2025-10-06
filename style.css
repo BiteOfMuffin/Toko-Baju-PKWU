@@ -251,13 +251,14 @@ body {
 
 #product1 {
   text-align: center;
+  padding: 40px 60px;
 }
 
 #product1 .pro-container {
   display: flex;
-  justify-content: space-between;
-  padding-top: 20px;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 #product1 .pro {
@@ -268,9 +269,10 @@ body {
   border-radius: 25px;
   cursor: pointer;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
-  margin: 15px 0px;
-  transition: transform 0.3s ease-in-out;
+  margin: 15px 0;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
   position: relative;
+  background-color: #fff;
 }
 
 #product1 .pro img.shirt {
@@ -279,8 +281,8 @@ body {
 }
 
 #product1 .pro:hover {
-  box-shadow: 20px 20px 54px rgba(28, 77, 161, 0.06);
-  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transform: scale(1.05);
 }
 
 #product1 .pro .des {
@@ -306,7 +308,7 @@ body {
 
 #product1 .pro .des h4 {
   padding-top: 7px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #088178;
 }
@@ -315,14 +317,72 @@ body {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  border-radius: 50px;
+  border-radius: 50%;
   background-color: #e8f6ea;
   font-weight: 500;
   color: #088178;
   border: 1px solid #cce7d0;
   position: absolute;
   bottom: 20px;
-  right: 10px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#product1 .pro .cart:hover {
+  background-color: #088178;
+  color: #fff;
+}
+
+/* 🌐 RESPONSIVE */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+  #product1 {
+    padding: 30px 40px;
+  }
+
+  #product1 .pro {
+    width: 45%;
+    min-width: unset;
+  }
+}
+
+/* HP (≤ 600px) */
+@media (max-width: 600px) {
+  #product1 {
+    padding: 20px;
+  }
+
+  #product1 .pro-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #product1 .pro {
+    width: 90%;
+  }
+
+  #product1 .pro img.shirt {
+    border-radius: 15px;
+  }
+
+  #product1 .pro .des h5 {
+    font-size: 13px;
+  }
+
+  #product1 .pro .des h4 {
+    font-size: 12px;
+  }
+
+  #product1 .pro .cart {
+    width: 35px;
+    height: 35px;
+    bottom: 15px;
+    right: 10px;
+  }
 }
 
 #banner {
@@ -490,6 +550,8 @@ h3 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
 }
 
 #sm-banner .banner-box {
@@ -503,7 +565,8 @@ h3 {
   background-size: cover;
   background-position: center;
   padding: 30px;
-  margin: 0 25px;
+  border-radius: 10px;
+  transition: 0.3s ease;
 }
 
 #sm-banner .banner-box2 {
@@ -534,11 +597,68 @@ h3 {
   border: 1px solid #088178;
 }
 
+/* 🌐 RESPONSIVE DESIGN */
+
+/* Untuk layar tablet (<= 992px) */
+@media (max-width: 992px) {
+  #sm-banner {
+    justify-content: center;
+  }
+
+  #sm-banner .banner-box {
+    min-width: 80%;
+    height: 40vh;
+    margin-bottom: 20px;
+  }
+
+  #sm-banner h2 {
+    font-size: 24px;
+  }
+
+  #sm-banner h4 {
+    font-size: 18px;
+  }
+}
+
+/* Untuk layar HP (<= 600px) */
+@media (max-width: 600px) {
+  #sm-banner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #sm-banner .banner-box {
+    width: 100%;
+    min-width: 100%;
+    height: 35vh;
+    padding: 20px;
+  }
+
+  #sm-banner h2 {
+    font-size: 20px;
+  }
+
+  #sm-banner h4 {
+    font-size: 16px;
+  }
+
+  #sm-banner span {
+    font-size: 12px;
+  }
+
+  #sm-banner .white {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+}
+
+
 #banner3 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0 80px;
+  gap: 20px;
 }
 
 #banner3 .banner-box {
@@ -552,7 +672,14 @@ h3 {
   background-size: cover;
   background-position: center;
   padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+#banner3 .banner-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 #banner3 .banner-box2 {
@@ -574,6 +701,53 @@ h3 {
   font-weight: 800;
   font-size: 15px;
 }
+
+/* 🌐 RESPONSIVE */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+  #banner3 {
+    justify-content: center;
+    padding: 0 40px;
+  }
+
+  #banner3 .banner-box {
+    min-width: 45%;
+    height: 25vh;
+  }
+
+  #banner3 h2 {
+    font-size: 20px;
+  }
+
+  #banner3 h3 {
+    font-size: 14px;
+  }
+}
+
+/* HP (≤ 600px) */
+@media (max-width: 600px) {
+  #banner3 {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  #banner3 .banner-box {
+    width: 100%;
+    min-width: 100%;
+    height: 25vh;
+  }
+
+  #banner3 h2 {
+    font-size: 18px;
+  }
+
+  #banner3 h3 {
+    font-size: 13px;
+  }
+}
+
 
 #newsletter {
   display: flex;
@@ -832,119 +1006,167 @@ footer .copyright {
   transform: translateY(-2px);
 }
 
+/* ===== BLOG HEADER ===== */
 #page-header.blog-header {
   background-image: url("./img/banner/b19.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
 }
 
+#page-header.blog-header h2 {
+  font-size: 48px;
+  letter-spacing: 1px;
+}
+
+#page-header.blog-header p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* ===== BLOG SECTION ===== */
 #blog {
-  padding: 150px 150px 0 150px;
+  padding: 100px 150px 0 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }
 
-#blog .blog-box {
+.blog-box {
   display: flex;
   align-items: center;
-  width: 100%;
+  gap: 40px;
   position: relative;
-  padding-bottom: 90px;
 }
 
-#blog .blog-img {
-  width: 50%;
-  margin-right: 40px;
+.blog-img {
+  flex: 1;
 }
 
-#blog img {
+.blog-img img {
   width: 100%;
-  height: 300px;
+  height: 320px;
   object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-#blog .blog-details {
-  width: 50%;
+.blog-details {
+  flex: 1;
 }
 
-#blog .blog-details p {
-  line-height: 22px;
-}
-
-#blog .blog-details a {
-  text-decoration: none;
-  font-size: 11px;
-  color: #000;
+.blog-details h4 {
+  font-size: 22px;
   font-weight: 700;
-  position: relative;
-  transition: 0.2s;
+  color: #111;
+  margin-bottom: 15px;
 }
 
-#blog .blog-details a::after {
-  content: "";
-  width: 50px;
-  height: 1px;
-  background-color: #000;
-  position: absolute;
-  top: 4px;
-  right: -60px;
+.blog-details p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-#blog .blog-details a:hover {
+.blog-details a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
   color: #088178;
+  position: relative;
+  transition: 0.3s;
 }
 
-#blog .blog-details a:hover::after {
-  background-color: #088178;
+.blog-details a::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 110%;
+  width: 40px;
+  height: 2px;
+  background: #088178;
+  transition: 0.3s;
 }
 
-#blog .blog-box h1 {
+.blog-details a:hover {
+  color: #00c38b;
+}
+
+.blog-details a:hover::after {
+  background: #00c38b;
+  width: 60px;
+}
+
+.blog-box h1 {
   position: absolute;
   top: -40px;
   left: 0;
   font-size: 70px;
   font-weight: 700;
-  color: #c9cbce;
-  z-index: -9;
+  color: #e0e0e0;
+  z-index: -1;
 }
 
-#page-header {
-  background-image: url("./img/banner/b1.jpg");
-  width: 100%;
-  height: 40vh;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  padding: 14px;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  #blog {
+    padding: 80px 60px 0 60px;
+  }
+
+  .blog-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .blog-img img {
+    height: 250px;
+  }
+
+  .blog-details {
+    width: 100%;
+  }
+
+  .blog-details p {
+    font-size: 15px;
+  }
+
+  .blog-box h1 {
+    font-size: 50px;
+    top: -20px;
+  }
 }
 
-.about-p1 h1 {
-  color: #016c34;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  font-size: 3.5rem;
-  font-weight: bold;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@media (max-width: 576px) {
+  #blog {
+    padding: 60px 30px 0 30px;
+    gap: 80px;
+  }
+
+  .blog-details h4 {
+    font-size: 18px;
+  }
+
+  .blog-details p {
+    font-size: 14px;
+  }
+
+  .blog-details a {
+    font-size: 12px;
+  }
+
+  .blog-img img {
+    height: 200px;
+  }
 }
 
-.about-p1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(11.9px);
-  -webkit-backdrop-filter: blur(11.9px);
-  border: 1px solid rgba(255, 255, 255, 0.44);
-  background-image: url("./img/backgroundkdkd.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.9;
-}
 
 #navbar-about {
   list-style: none;
@@ -1012,6 +1234,37 @@ footer .copyright {
 #header.scrolled #mobile i {
   color: #333;
 }
+
+.about-p1 h1 {
+  color: #016c34;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-p1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.9px);
+  -webkit-backdrop-filter: blur(11.9px);
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  background-image: url("./img/backgroundkdkd.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+}
+
 
 .about-p2 {
   display: flex;
@@ -1399,6 +1652,189 @@ footer .copyright {
 .about-p6-card-box:hover {
   transform: translateY(-10px);
 }
+
+/* =============================== */
+/* 📱 RESPONSIVE STYLE */
+/* =============================== */
+
+/* Untuk layar besar sedang (max 1200px) */
+@media (max-width: 1200px) {
+  .about-p3 {
+    gap: 40px;
+    padding: 0 40px 60px;
+  }
+
+  .bisnis-kami-text {
+    left: 10rem;
+  }
+
+  .about-p6-text h1 {
+    left: 0;
+    font-size: 30px;
+  }
+}
+
+/* Untuk tablet (max 992px) */
+@media (max-width: 992px) {
+  .about-p1 h1 {
+    font-size: 2.8rem;
+  }
+
+  .about-p2 {
+    padding: 60px 40px;
+  }
+
+  .about-p3 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #misi {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  #misi-img {
+    min-height: 350px;
+    width: 100%;
+  }
+
+  .about-p4 {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .bisnis-kami h5,
+  .bisnis-kami h1 {
+    left: 0;
+    top: 0;
+    text-align: center;
+  }
+
+  .bisnis-kami-text {
+    left: 0;
+    bottom: 0;
+    flex-direction: column;
+  }
+
+  .about-p5 h1 {
+    font-size: 32px;
+  }
+
+  .about-p6-cover {
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .about-p6-text h1 {
+    font-size: 28px;
+    left: 0;
+  }
+}
+
+/* Untuk HP (max 768px) */
+@media (max-width: 768px) {
+  .about-p1 h1 {
+    font-size: 2.2rem;
+    padding: 0 20px;
+  }
+
+  .about-p2 h4 {
+    font-size: 26px;
+  }
+
+  .about-p3 {
+    padding: 0 20px 40px;
+  }
+
+  .about-p4 {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .bisnis-kami h1 {
+    font-size: 24px;
+  }
+
+  .bisnis-kami-box h3 {
+    font-size: 30px;
+  }
+
+  .bisnis-kami-text {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about-p5 {
+    padding: 40px 20px;
+  }
+
+  .about-p5-card-box {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-p6-text h1 {
+    font-size: 24px;
+  }
+
+  .about-p6-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-p6-card-box {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .about-p6-card-box p {
+    left: 0;
+    text-align: center;
+  }
+
+  #about-p6-footer {
+    flex-direction: column;
+    top: 4rem;
+  }
+}
+
+/* Untuk layar kecil banget (max 480px) */
+@media (max-width: 480px) {
+  .about-p1 h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-p2 {
+    padding: 40px 20px;
+  }
+
+  .about-p2 h4 {
+    font-size: 22px;
+  }
+
+  #misi h3 {
+    font-size: 24px;
+  }
+
+  .about-p5 h1 {
+    font-size: 22px;
+  }
+
+  .about-p6-text h5 {
+    font-size: 14px;
+  }
+
+  .about-p6-text h1 {
+    font-size: 20px;
+  }
+
+  .about-p6-card-box p {
+    font-size: 11px;
+  }
+}
+
 
 #body-bisnis-kami {
   background-color: black;
