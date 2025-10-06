@@ -313,6 +313,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ========== LOGIKA HALAMAN KERANJANG & CHECKOUT (CART.HTML) ==========
     const cartPage = document.getElementById('cart-container');
+    const paymentModal = document.getElementById('payment-modal');
+    const paymentSuccessModal = document.getElementById('payment-success-modal');
     if (cartPage) {
         const cartItemsContainer = document.getElementById('cart-items-container');
         const cartSummary = document.getElementById('cart-summary');
@@ -321,8 +323,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const cartEmptyMessage = document.getElementById('cart-empty-message');
         
         const checkoutBtn = document.getElementById('checkout-btn');
-        const paymentModal = document.getElementById('payment-modal');
-        const paymentSuccessModal = document.getElementById('payment-success-modal');
         
         function displayCartItems() {
             const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
@@ -337,17 +337,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 cartItemsContainer.style.display = 'flex';
                 cartSummary.style.display = 'block';
 
-                cart.forEach(item => {
+                cart.forEach((item, index) => {
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('cart-item');
                     itemElement.innerHTML = `
                         <img src="${item.image}" alt="${item.name}">
                         <div class="cart-item-details">
                             <h5>${item.name}</h5>
-                            <span>ID: ${item.id}</span>
+                            <div class="quantity-control">
+                                <button class="quantity-btn decrease" data-index="${index}">-</button>
+                                <input type="text" class="quantity-value" value="${item.quantity || 1}" readonly>
+                                <button class="quantity-btn increase" data-index="${index}">+</button>
+                            </div>
                         </div>
                         <div class="cart-item-actions">
-                            <span class="item-price">${formatRupiah(item.price)}</span>
+                            <span class="item-price">${formatRupiah((item.price || 0) * (item.quantity || 1))}</span>
                             <a href="#" class="remove-item" data-id="${item.id}"><i class='bx bxs-trash'></i></a>
                         </div>
                     `;
@@ -355,12 +359,34 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 updateCartTotals();
                 addRemoveEventListeners();
+                addQuantityEventListeners();
             }
+        }
+
+        function addQuantityEventListeners() {
+            document.querySelectorAll('.quantity-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    const isIncrease = e.target.classList.contains('increase');
+                    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+                    let qty = cart[index].quantity || 1;
+
+                    if (isIncrease) {
+                        qty++;
+                    } else {
+                        if (qty > 1) qty--;
+                    }
+
+                    cart[index].quantity = qty;
+                    sessionStorage.setItem('cart', JSON.stringify(cart));
+                    displayCartItems();
+                });
+            });
         }
 
         function updateCartTotals() {
             const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-            const subtotal = cart.reduce((total, item) => total + item.price, 0);
+            const subtotal = cart.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
             const totalText = formatRupiah(subtotal);
             
             cartSubtotalEl.textContent = totalText;
@@ -393,133 +419,179 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         
-        const paymentOptions = document.querySelectorAll('input[name="payment"]');
-        const paymentDetails = document.querySelectorAll('.payment-details');
-        paymentOptions.forEach(option => {
-            option.addEventListener('change', () => {
-                paymentDetails.forEach(detail => detail.classList.remove('active'));
-                const targetDetail = document.getElementById(`${option.value}_details`);
-                if (targetDetail) {
-                    targetDetail.classList.add('active');
-                }
-            });
-        });
-
-        const payNowBtn = document.getElementById('pay-now-btn');
-        const paymentError = document.getElementById('payment-error');
-        if (payNowBtn) {
-            payNowBtn.addEventListener('click', () => {
-                const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
-                let isValid = true;
-                paymentError.textContent = '';
-                if (selectedPayment === 'credit_card') {
-                    const ccNumber = document.getElementById('credit-card-number').value;
-                    if (ccNumber.length !== 16 || !/^\d+$/.test(ccNumber)) {
-                        paymentError.textContent = 'Please enter a valid 16-digit card number.';
-                        isValid = false;
-                    }
-                }
-                if (selectedPayment === 'bank_transfer') {
-                    const vaNumber = document.getElementById('bank-va-number').value;
-                    if (vaNumber.length < 8) {
-                        paymentError.textContent = 'Please enter a valid Virtual Account number.';
-                        isValid = false;
-                    }
-                }
-                if (!isValid) return;
-                payNowBtn.textContent = 'Processing...';
-                payNowBtn.disabled = true;
-                setTimeout(() => {
-                    paymentModal.classList.remove('show');
-                    paymentSuccessModal.classList.add('show');
-                    sessionStorage.removeItem('cart');
-                    displayCartItems();
-                    updateCartCounter();
-                    payNowBtn.textContent = 'Pay Now';
-                    payNowBtn.disabled = false;
-                }, 2500);
-            });
-        }
-        
-        document.querySelectorAll('.modal-overlay').forEach(modal => {
-            const closeBtn = modal.querySelector('.close-modal');
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('show'));
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.remove('show');
-            });
-        });
-        
         displayCartItems();
     }
-});
 
-
-// aaaaaaaa
-
-// script.js
-// Image gallery functionality
-const thumbnails = document.querySelectorAll('.thumbnail');
-const mainImage = document.getElementById('mainImage');
-
-thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('click', function() {
-        // Remove active class from all thumbnails
-        thumbnails.forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked thumbnail
-        this.classList.add('active');
-        
-        // Update main image
-        mainImage.src = this.dataset.src || this.src;
+    // ========== LOGIKA PEMBAYARAN GLOBAL (UNTUK CART DAN BUY NOW) ==========
+    const paymentOptions = document.querySelectorAll('input[name="payment"]');
+    const paymentDetails = document.querySelectorAll('.payment-details');
+    paymentOptions.forEach(option => {
+        option.addEventListener('change', () => {
+            paymentDetails.forEach(detail => detail.classList.remove('active'));
+            const targetDetail = document.getElementById(`${option.value}-details`);
+            if (targetDetail) {
+                targetDetail.classList.add('active');
+            }
+        });
     });
-});
 
-// Quantity control
-const quantityInput = document.getElementById('quantity');
-const increaseBtn = document.getElementById('increaseQty');
-const decreaseBtn = document.getElementById('decreaseQty');
+    const payNowBtn = document.getElementById('pay-now-btn');
+    const paymentError = document.getElementById('payment-error');
+    const isCartPage = !!cartPage; // Deteksi apakah ini halaman cart
+    if (payNowBtn) {
+        payNowBtn.addEventListener('click', () => {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            let isValid = true;
+            paymentError.textContent = '';
+            if (selectedPayment === 'credit_card') {
+                const ccNumber = document.getElementById('credit-card-number').value;
+                if (ccNumber.length !== 16 || !/^\d+$/.test(ccNumber)) {
+                    paymentError.textContent = 'Please enter a valid 16-digit card number.';
+                    isValid = false;
+                }
+            }
+            if (selectedPayment === 'bank_transfer') {
+                const vaNumber = document.getElementById('bank-va-number').value;
+                if (vaNumber.length < 8) {
+                    paymentError.textContent = 'Please enter a valid Virtual Account number.';
+                    isValid = false;
+                }
+            }
+            if (!isValid) return;
+            payNowBtn.textContent = 'Processing...';
+            payNowBtn.disabled = true;
+            setTimeout(() => {
+                paymentModal.classList.remove('show');
+                paymentSuccessModal.classList.add('show');
+                if (isCartPage) {
+                    sessionStorage.removeItem('cart');
+                } // Hanya clear cart jika di halaman cart; untuk buy now, jangan clear
+                if (isCartPage) {
+                    displayCartItems();
+                }
+                updateCartCounter();
+                payNowBtn.textContent = 'Pay Now';
+                payNowBtn.disabled = false;
+            }, 2500);
+        });
+    }
+    
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        const closeBtn = modal.querySelector('.close-modal');
+        if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
+    });
 
-increaseBtn.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    quantityInput.value = currentValue + 1;
-});
+    // Image gallery functionality
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('mainImage');
 
-decreaseBtn.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    if (currentValue > 1) {
-        quantityInput.value = currentValue - 1;
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            // Remove active class from all thumbnails
+            thumbnails.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked thumbnail
+            this.classList.add('active');
+            
+            // Update main image
+            mainImage.src = this.dataset.src || this.src;
+        });
+    });
+
+    // Quantity control
+    const quantityInput = document.getElementById('quantity');
+    const increaseBtn = document.getElementById('increaseQty');
+    const decreaseBtn = document.getElementById('decreaseQty');
+
+    increaseBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    });
+
+    decreaseBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    });
+
+    // Variant selection
+    const variantOptions = document.querySelectorAll('.variant-option');
+
+    variantOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from all options
+            variantOptions.forEach(o => o.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+        });
+    });
+
+    // ========== LOGIKA UNTUK TOMBOL BELI SEKARANG (PAYMENT MODAL) ==========
+    const buyNowBtn = document.querySelector('.btn-buy');
+    if (buyNowBtn && paymentModal) {
+        buyNowBtn.addEventListener('click', () => {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            const priceStr = document.querySelector('.product-price').textContent.replace('Rp', '').replace(/\./g, '');
+            const price = parseInt(priceStr) || 0;
+            const total = price * qty;
+            const totalText = formatRupiah(total);
+            document.getElementById('modal-total-amount').textContent = totalText;
+            paymentModal.classList.add('show');
+        });
+    }
+
+    // ========== LOGIKA UNTUK TOMBOL TAMBAH KE TROLI DI HALAMAN DETAIL ==========
+    const addToCartBtn = document.querySelector('.btn-cart');
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', () => {
+            const qty = parseInt(document.getElementById('quantity').value) || 1;
+            const variant = document.querySelector('.variant-option.selected')?.textContent || 'Default';
+            const priceStr = document.querySelector('.product-price').textContent.replace('Rp', '').replace(/\./g, '');
+            const price = parseInt(priceStr) || 0;
+            const product = {
+                id: 'cartoon-astronaut-' + variant.replace(/\s/g, '-').toLowerCase(),
+                name: document.querySelector('.product-title').textContent,
+                price: price,
+                image: document.getElementById('mainImage').src,
+                quantity: qty,
+                variant: variant
+            };
+
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += qty;
+            } else {
+                cart.push(product);
+            }
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCounter();
+
+            if (addToCartModal) {
+                document.getElementById('modal-added-item-name').textContent = `${product.name} has been added to your cart.`;
+                addToCartModal.classList.add('show');
+            }
+        });
     }
 });
 
-// Variant selection
-const variantOptions = document.querySelectorAll('.variant-option');
+document.addEventListener('DOMContentLoaded', () => {
+  const bar = document.getElementById('bar');
+  const close = document.getElementById('close');
+  const navbar = document.getElementById('navbar');
 
-variantOptions.forEach(option => {
-    option.addEventListener('click', function() {
-        // Remove selected class from all options
-        variantOptions.forEach(o => o.classList.remove('selected'));
-        
-        // Add selected class to clicked option
-        this.classList.add('selected');
+  if (bar && close && navbar) {
+    bar.addEventListener('click', () => {
+      navbar.classList.add('active');
     });
-});
 
-// Floating cart button animation
-const floatingCart = document.querySelector('.floating-cart');
-
-floatingCart.addEventListener('click', function() {
-    this.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        this.style.transform = 'scale(1)';
-    }, 150);
-    
-    alert('Produk ditambahkan ke troli!');
-});
-
-// Smooth scroll for reviews
-document.querySelector('.reviews-section h2').addEventListener('click', function() {
-    window.scrollTo({
-        top: document.querySelector('.reviews-section').offsetTop - 100,
-        behavior: 'smooth'
+    close.addEventListener('click', () => {
+      navbar.classList.remove('active');
     });
+  }
 });

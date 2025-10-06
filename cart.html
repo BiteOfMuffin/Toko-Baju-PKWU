@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Coventina Store</title>
     <link rel="icon" type="image/x-icon" href="./img/icon1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="style.css">
@@ -36,10 +36,10 @@
         <div class="cart-items" id="cart-items-container"></div>
         <div id="cart-summary">
             <h3>Cart Summary</h3>
-            <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">₹ 0.00</span></div>
+            <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">Rp0</span></div>
             <div class="summary-row"><span>Shipping</span><span>Free</span></div>
             <hr>
-            <div class="summary-row total"><span>Total</span><strong id="cart-total">₹ 0.00</strong></div>
+            <div class="summary-row total"><span>Total</span><strong id="cart-total">Rp0</strong></div>
             <button id="checkout-btn" class="normal">Proceed to Checkout</button>
         </div>
         <div id="cart-empty-message" style="display: none; text-align: center; width: 100%; padding: 40px;">
@@ -66,7 +66,7 @@
                 <label><input type="radio" name="payment" value="gopay"> GoPay</label>
             </div>
             <p id="payment-error" class="error-message"></p>
-            <div class="modal-total"><span>Total Payment:</span><strong id="modal-total-amount">₹ 0.00</strong></div>
+            <div class="modal-total"><span>Total Payment:</span><strong id="modal-total-amount">Rp0</strong></div>
             <button id="pay-now-btn" class="normal">Pay Now</button>
         </div>
     </div>
