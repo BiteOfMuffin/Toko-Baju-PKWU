@@ -3103,7 +3103,8 @@ h2 {
 
 /* Responsif untuk Keranjang */
 @media (max-width: 992px) {
-    .cart-items, #cart-summary {
+    .cart-items, 
+    #cart-summary {
         width: 100%;
     }
 }
@@ -3155,109 +3156,357 @@ h2 {
     justify-content: flex-start;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -300px;
     height: 100vh;
-    width: 250px;
-    background: #e3e6f3;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    padding: 80px 20px 20px;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(100%);
-    z-index: 999;
+    width: 270px;
+    background: #fff;
+    box-shadow: 0 40px 60px rgba(0,0,0,0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s ease-in-out;
   }
 
   #navbar.active {
+    right: 0;
     display: flex;
-    transform: translateX(0);
+    flex-direction: column;
   }
 
   #navbar li {
-    padding: 15px 20px;
-    width: 100%;
-  }
-
-  #navbar li a {
-    font-size: 16px;
-    color: #1a1a1a;
-  }
-
-  #navbar li a:hover::after,
-  #navbar li a.active::after {
-    display: none;
+    margin-bottom: 25px;
   }
 
   #mobile {
     display: flex;
     align-items: center;
-    gap: 15px;
-  }
-
-  #mobile i {
-    font-size: 24px;
-    color: #1a1a1a;
-    cursor: pointer;
-  }
-
-  #bar {
-    display: block;
+    gap: 20px;
   }
 
   #close {
     display: block;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
     font-size: 24px;
-    color: #1a1a1a;
-    cursor: pointer;
   }
 
-  .hero {
+  /* Header adjustments */
+  #header {
+    padding: 15px 30px;
+  }
+
+  .Logo-header {
+    width: 120px;
+    left: 30px;
+  }
+
+  /* Hero section */
+  #first-page {
+    padding: 0 20px;
+    height: 70vh;
+    background-position: top 30% right 30%;
+  }
+
+  #first-page h1 {
+    font-size: 38px;
+  }
+
+  #first-page h2 {
+    font-size: 32px;
+  }
+
+  #first-page h4 {
+    font-size: 16px;
+  }
+
+  /* Feature section */
+  .feature-p1 {
+    padding: 40px 20px;
+    gap: 15px;
+  }
+
+  .fe-box {
+    width: 155px;
+    margin: 0 0 15px 0;
+  }
+
+  /* Product section */
+  #product1 {
+    padding: 20px;
+  }
+
+  #product1 .pro-container {
+    justify-content: center;
+  }
+
+  #product1 .pro {
+    margin: 15px;
+    width: calc(50% - 20px);
+    min-width: 150px;
+  }
+
+  /* Banner sections */
+  #banner {
+    height: 25vh;
+    padding: 30px;
+  }
+
+  #sm-banner .banner-box {
+    min-width: 100%;
+    height: 40vh;
+    margin-bottom: 20px;
+  }
+
+  #banner3 {
+    padding: 0 20px;
+  }
+
+  #banner3 .banner-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Newsletter */
+  #newsletter {
     padding: 40px 20px;
   }
 
-  .hero .container {
-    flex-direction: column;
-    gap: 20px;
+  #newsletter .form {
+    width: 100%;
+    margin-top: 20px;
   }
 
-  .hero-content {
-    max-width: 100%;
+  /* Footer */
+  footer {
+    padding: 20px;
+  }
+
+  footer .col {
+    margin-bottom: 30px;
+  }
+
+  /* Cart page */
+  #cart {
+    overflow-x: auto;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .cart-item img {
+    margin-bottom: 15px;
+  }
+
+  .cart-item-details {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+/* Smaller mobile devices */
+@media (max-width: 477px) {
+  #header {
+    padding: 10px 20px;
+  }
+
+  .Logo-header {
+    width: 100px;
+  }
+
+  #first-page {
+    background-position: 55%;
+    padding: 0 15px;
+  }
+
+  #first-page h1 {
+    font-size: 32px;
+  }
+
+  #first-page h2 {
+    font-size: 28px;
+  }
+
+  #feature {
+    justify-content: space-between;
+  }
+
+  .fe-box {
+    width: 140px;
+  }
+
+  #product1 .pro {
+    width: 100%;
+  }
+
+  #banner {
+    height: 30vh;
+  }
+
+  #sm-banner .banner-box {
+    height: 35vh;
+  }
+
+  #banner3 {
+    padding: 0 15px;
+  }
+
+  #newsletter .form {
+    padding: 0;
+  }
+
+  footer .copyright {
+    text-align: start;
+  }
+}
+
+/* Tambahkan CSS berikut di bagian Cart Responsive */
+
+@media (max-width: 768px) {
+  /* Global Navigation */
+  #header {
+    padding: 10px 20px;
+  }
+
+  #navbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 270px;
+    background: #fff;
+    box-shadow: 0 40px 60px rgba(0,0,0,0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s ease-in-out;
+  }
+
+  #navbar.active {
+    display: flex;
+    right: 0;
+  }
+
+  #navbar li {
+    margin-bottom: 25px;
+  }
+
+  #mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  #close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #222;
+    font-size: 24px;
+    display: block;
+  }
+
+  /* Shop Page */
+  #banner-shop {
+    padding: 40px 20px;
+    height: 30vh;
+  }
+
+  .pro-container {
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .pro {
+    width: calc(50% - 20px);
+    min-width: 150px;
+  }
+
+  /* About Page */
+  .about-p1 {
+    padding: 40px 20px;
+  }
+
+  .about-p1 h1 {
+    font-size: 28px;
+  }
+
+  .about-p2, .about-p3 {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #misi {
+    width: 100%;
     text-align: center;
   }
 
+  #misi-img {
+    width: 100%;
+    height: 300px;
+  }
+
+  /* Bisnis Kami Page */
+  .bisnis-kami-p1 {
+    padding: 40px 20px;
+  }
+
+  .bisnis-kami-box-p2 {
+    padding: 20px;
+    height: auto;
+  }
+
+  .bisnis-kami-box-p2-card {
+    width: 100%;
+  }
+
+  .solusi-logistic-box {
+    flex-direction: column;
+  }
+
+  .solusi-logistic-box img {
+    width: 100%;
+    left: 0;
+  }
+
+  /* Contact Page */
+  #contact-details {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #contact-details .details,
+  #contact-details .map {
+    width: 100%;
+  }
+
+  #form-details {
+    margin: 20px;
+    padding: 30px;
+    flex-direction: column;
+  }
+
+  #form-details form,
+  #form-details .people {
+    width: 100%;
+  }
+
+  /* Join with Us Page */
+  .hero .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-content {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
   .hero-title {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 32px;
   }
 
   .hero-subtitle {
     font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .cta-button {
-    padding: 12px 25px;
-    font-size: 14px;
-  }
-
-  .hero-image video {
-    max-width: 90%;
-    border-radius: 10px;
-    transform: none;
-  }
-
-  .hero-image video:hover {
-    transform: scale(1.03);
-  }
-
-  .benefits {
-    padding: 50px 15px;
-  }
-
-  .section-title {
-    font-size: 24px;
-    margin-bottom: 30px;
   }
 
   .benefits-grid {
@@ -3265,309 +3514,78 @@ h2 {
     gap: 20px;
   }
 
-  .benefit-card {
-    padding: 20px;
-  }
-
-  .benefit-icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  .benefit-icon i {
-    font-size: 40px;
-  }
-
-  .benefit-card h3 {
-    font-size: 18px;
-  }
-
-  .benefit-card p {
-    font-size: 14px;
-  }
-
-  .how-it-works {
-    padding: 50px 15px;
-  }
-
   .steps {
     flex-direction: column;
-    gap: 15px;
   }
 
   .step {
-    min-width: 100%;
-    padding: 20px;
-  }
-
-  .step::before {
-    display: none;
-  }
-
-  .step-number {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .step h3 {
-    font-size: 20px;
-  }
-
-  .step p {
-    font-size: 14px;
-  }
-
-  .testimonials {
-    padding: 50px 15px;
-  }
-
-  .testimonials-slider {
-    max-width: 100%;
-  }
-
-  .testimonial {
-    padding: 20px;
-  }
-
-  .testimonial-content p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .testimonial-author i {
-    font-size: 50px;
-  }
-
-  .author-info h4 {
-    font-size: 16px;
-  }
-
-  .author-info p {
-    font-size: 12px;
-  }
-
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .cta-section {
-    padding: 50px 15px;
-  }
-
-  .cta-content h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-
-  .cta-content p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  .cta-large {
-    padding: 15px 30px;
-    font-size: 14px;
-    min-width: 250px;
-  }
-
-  footer {
-    padding: 0 20px;
-  }
-
-  footer .col {
     width: 100%;
-    margin-bottom: 30px;
-  }
-
-  footer .logo {
-    width: 120px;
   }
 }
 
-@media only screen and (max-width: 480px) {
-  h1 {
-    font-size: 28px;
-    line-height: 36px;
+/* Smaller screens */
+@media (max-width: 480px) {
+  .pro {
+    width: 100%;
   }
 
-  h2 {
+  .about-p1 h1 {
     font-size: 24px;
-    line-height: 32px;
   }
 
-  h4 {
-    font-size: 16px;
+  .bisnis-kami-box-p2 h1 {
+    font-size: 24px;
   }
 
-  p {
-    font-size: 14px;
+  .solusi-logistic h1 {
+    font-size: 24px;
   }
 
-  #navbar {
-    width: 200px;
-    padding: 60px 15px 15px;
-  }
-
-  #navbar li a {
-    font-size: 14px;
-  }
-
-  #mobile i, #close {
-    font-size: 20px;
-  }
-
-  .hero {
-    padding: 30px 10px;
+  #contact-details h2 {
+    font-size: 24px;
   }
 
   .hero-title {
-    font-size: 24px;
-    line-height: 32px;
-  }
-
-  .hero-subtitle {
-    font-size: 14px;
-  }
-
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 12px;
-  }
-
-  .hero-image video {
-    max-width: 100%;
-  }
-
-  .section-title {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .benefit-card {
-    padding: 15px;
-  }
-
-  .benefit-icon {
-    width: 80px;
-    height: 80px;
-  }
-
-  .benefit-icon i {
-    font-size: 32px;
-  }
-
-  .benefit-card h3 {
-    font-size: 16px;
-  }
-
-  .benefit-card p {
-    font-size: 12px;
+    padding: 20px;
   }
 
   .step {
-    padding: 15px;
-  }
-
-  .step-number {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
-
-  .step h3 {
-    font-size: 18px;
-  }
-
-  .step p {
-    font-size: 12px;
+    padding: 20px;
   }
 
   .testimonial-content p {
     font-size: 14px;
   }
-
-  .testimonial-author i {
-    font-size: 40px;
-  }
-
-  .author-info h4 {
-    font-size: 14px;
-  }
-
-  .author-info p {
-    font-size: 10px;
-  }
-
-  .slider-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
-
-  .cta-content h2 {
-    font-size: 20px;
-  }
-
-  .cta-content p {
-    font-size: 12px;
-  }
-
-  .cta-large {
-    padding: 12px 25px;
-    font-size: 12px;
-    min-width: 200px;
-  }
 }
 
-@media (max-width: 992px) {
-  /* Tata letak about-p3 akan menjadi 1 kolom (vertikal) di tablet/mobile */
-  .about-p3 {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
-  }
+/* Fix for Burger Menu */
+#mobile {
+  display: none;
+  align-items: center;
+  gap: 15px;
+}
 
-  #misi h5,
-  #misi h3,
-  #misi p {
-    text-align: center; /* Teks menjadi rata tengah di mobile */
-  }
+#mobile i {
+  color: #1a1a1a;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-  #misi-img {
-    width: 100%;
-    min-height: 400px; /* Sesuaikan tinggi kanvas di mobile */
-  }
+#bar {
+  cursor: pointer;
+  padding: 10px;
 }
 
 @media (max-width: 768px) {
-  .about-p2 {
-    padding: 60px 20px; /* Kurangi padding di mobile */
+  #mobile {
+    display: flex;
   }
-  .about-p2 h4 {
-    font-size: 28px;
-  }
-
-  .about-p3 {
-    padding: 60px 20px;
-  }
-  #misi h3 {
-    font-size: 28px;
-  }
-
-  #misi-img {
-    min-height: 300px;
-  }
-
-  #misi-img .b43 {
-    width: 65%;
-  }
-  #misi-img .b42 {
-    width: 45%;
-    top: 100px;
-  }
-  #misi-img .b41 {
-    width: 55%;
+  
+  #navbar {
+    z-index: 999;
   }
 }

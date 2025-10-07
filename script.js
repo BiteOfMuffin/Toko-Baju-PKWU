@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // ========== NAVBAR & HEADER ==========
     const bar = document.getElementById("bar");
@@ -578,6 +575,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (nav && nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            e.target !== bar) {
+          nav.classList.remove('active');
+        }
+      });
 });
 
 document.addEventListener('DOMContentLoaded', () => {

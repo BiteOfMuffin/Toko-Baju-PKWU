@@ -1,0 +1,297 @@
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 768px) {
+    .containerrr-r {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .product-images {
+        position: static;
+    }
+
+    .main-image {
+        height: 300px;
+        border-radius: 8px;
+    }
+
+    .thumbnail-container {
+        gap: 8px;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+    }
+
+    .product-info {
+        padding: 0;
+    }
+
+    .product-title {
+        font-size: 20px;
+    }
+
+    .product-subtitle {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 24px;
+    }
+
+    .original-price, .discount-badge {
+        font-size: 16px;
+    }
+
+    .rating-section, .satisfaction {
+        font-size: 14px;
+    }
+
+    .rating, .rating-text, .rating-count {
+        font-size: 14px;
+    }
+
+    .store-info {
+        padding: 10px;
+    }
+
+    .store-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .store-name, .store-status {
+        font-size: 14px;
+    }
+
+    .follow-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .variant-section, .quantity-section {
+        margin: 15px 0;
+    }
+
+    .variant-title {
+        font-size: 16px;
+    }
+
+    .variant-option {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .quantity-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .quantity-value {
+        width: 50px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .btn-cart i {
+        font-size: 20px;
+    }
+
+    .details-title {
+        font-size: 18px;
+    }
+
+    .details-content {
+        font-size: 14px;
+    }
+
+    .reviews-section {
+        margin-top: 20px;
+    }
+
+    .review-card {
+        padding: 10px;
+    }
+
+    .reviewer-name, .review-date, .review-text {
+        font-size: 14px;
+    }
+
+    .review-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .success-icon {
+        font-size: 60px;
+    }
+
+    .payment-options label {
+        font-size: 14px;
+    }
+
+    .payment-details input {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .modal-total {
+        font-size: 16px;
+    }
+
+    #pay-now-btn, .continue-shopping-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .floating-cart {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cart-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main-image {
+        height: 250px;
+    }
+
+    .thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+
+    .product-title {
+        font-size: 18px;
+    }
+
+    .product-price {
+        font-size: 22px;
+    }
+
+    .original-price, .discount-badge {
+        font-size: 14px;
+    }
+
+    .rating, .rating-text, .rating-count, .satisfaction {
+        font-size: 12px;
+    }
+
+    .store-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .store-name, .store-status {
+        font-size: 12px;
+    }
+
+    .follow-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .variant-title {
+        font-size: 14px;
+    }
+
+    .variant-option {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .quantity-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .quantity-value {
+        width: 40px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .btn-cart i {
+        font-size: 18px;
+    }
+
+    .details-title {
+        font-size: 16px;
+    }
+
+    .details-content {
+        font-size: 12px;
+    }
+
+    .reviewer-name, .review-date, .review-text {
+        font-size: 12px;
+    }
+
+    .review-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    .success-icon {
+        font-size: 50px;
+    }
+
+    .payment-options label {
+        font-size: 12px;
+    }
+
+    .modal-total {
+        font-size: 14px;
+    }
+
+    #pay-now-btn, .continue-shopping-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .floating-cart {
+        width: 45px;
+        height: 45px;
+    }
+
+    .cart-icon {
+        width: 18px;
+        height: 18px;
+    }
+}

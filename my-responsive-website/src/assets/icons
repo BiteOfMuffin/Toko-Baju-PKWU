@@ -1,0 +1,96 @@
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 768px) {
+    .containerrr-r {
+        grid-template-columns: 1fr; /* Satu kolom untuk perangkat kecil */
+        padding: 15px;
+    }
+
+    .main-image {
+        height: 300px; /* Ukuran gambar utama */
+        border-radius: 8px;
+    }
+
+    .thumbnail {
+        width: 60px; /* Ukuran thumbnail */
+        height: 60px;
+    }
+
+    .product-title {
+        font-size: 20px; /* Ukuran font judul produk */
+    }
+
+    .product-price {
+        font-size: 24px; /* Ukuran font harga produk */
+    }
+
+    .btn {
+        padding: 12px; /* Ukuran tombol */
+        font-size: 14px;
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Tombol dalam kolom */
+        gap: 10px;
+    }
+
+    .modal-content {
+        width: 95%; /* Lebar modal */
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px; /* Ukuran font judul modal */
+    }
+
+    .success-icon {
+        font-size: 60px; /* Ukuran ikon sukses */
+    }
+
+    .payment-details input {
+        padding: 10px; /* Padding input */
+        font-size: 12px; /* Ukuran font input */
+    }
+
+    #pay-now-btn, .continue-shopping-btn {
+        padding: 12px; /* Ukuran tombol bayar */
+        font-size: 14px;
+    }
+
+    .floating-cart {
+        width: 50px; /* Ukuran cart */
+        height: 50px;
+    }
+
+    .cart-icon {
+        width: 20px; /* Ukuran ikon cart */
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main-image {
+        height: 250px; /* Ukuran gambar utama untuk perangkat kecil */
+    }
+
+    .product-title {
+        font-size: 18px; /* Ukuran font judul produk */
+    }
+
+    .product-price {
+        font-size: 22px; /* Ukuran font harga produk */
+    }
+
+    .btn {
+        padding: 10px; /* Ukuran tombol */
+        font-size: 12px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px; /* Ukuran font judul modal */
+    }
+
+    .success-icon {
+        font-size: 50px; /* Ukuran ikon sukses */
+    }
+}
